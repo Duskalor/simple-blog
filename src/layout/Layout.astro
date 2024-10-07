@@ -1,0 +1,30 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/Header.astro';
+
+const title = Astro.props.title || 'Astro';
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body
+    class='max-w-screen-lg mx-auto grid grid-rows-[auto,1fr,auto] h-screen gap-10'
+  >
+    <Header />
+    <div>
+      <slot />
+    </div>
+    <footer class='text-center text-sm text-gray-500'>
+      <p>Made with Astro</p>
+      <p>© {new Date().getFullYear()}</p>
+    </footer>
+  </body>
+</html>

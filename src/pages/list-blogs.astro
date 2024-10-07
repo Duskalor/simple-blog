@@ -1,0 +1,33 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const alldata = await getCollection('blog');
+
+const blogs = alldata.map((blog: CollectionEntry<'blog'>) => ({
+  image: blog.data.image,
+  title: blog.data.title,
+  slug: blog.slug,
+}));
+---
+
+<div
+  class='grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] gap-x-10 gap-y-16 p-4'
+>
+  {
+    blogs.map((blog) => (
+      <a
+        href={`/blog/${blog.slug}`}
+        class='cursor-pointer w-full  hover:scale-110 transition-all duration-300 ease-in-out'
+      >
+        <h2 class='text-2xl font-bold text-center'>{blog.title}</h2>
+        <img
+          class='w-full h-full object-cover rounded-lg '
+          src={blog.image}
+          transition:name={`slug-${blog.slug}`}
+          alt={blog.title}
+          width='400'
+        />
+      </a>
+    ))
+  }
+</div>

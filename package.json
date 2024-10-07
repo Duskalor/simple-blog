@@ -1,0 +1,20 @@
+{
+  "name": "simple-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.1",
+    "astro": "^4.15.11",
+    "tailwindcss": "^3.4.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15"
+  }
+}
