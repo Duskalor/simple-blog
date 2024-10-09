@@ -1,12 +1,10 @@
 ---
-title: Politica Peru
+title: Política Perú
 autor: Dušan Lorković
-description: La política de la República Peruana
+description: La política de la República del Perú
 date: 2023-07-01
 image: /blog/politica-peruana.webp
 ---
-
-# Política Peruana
 
 La política del Perú ha sido caracterizada por una historia compleja de estabilidad e inestabilidad, marcada por diversos regímenes, golpes de Estado, reformas constitucionales y crisis políticas. A continuación, se ofrece un resumen de las principales etapas y características del sistema político peruano.
 

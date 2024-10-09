@@ -6,8 +6,6 @@ date: 2023-07-01
 image: /blog/peliculas-peruanas.jpeg
 ---
 
-# Películas Peruanas
-
 El cine peruano ha crecido considerablemente en las últimas décadas, ofreciendo una rica variedad de historias que exploran la cultura, historia y vida cotidiana del país. A continuación, algunas películas destacadas del cine peruano:
 
 ## 1. _La Teta Asustada_ (2009)

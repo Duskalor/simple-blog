@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layout/Layout.astro';
+import H1 from '../../components/H1.astro';
 
 export const getStaticPaths = async () => {
   const blogs = await getCollection('blog');
@@ -11,24 +12,28 @@ export const getStaticPaths = async () => {
 };
 
 const { slug } = Astro.params;
-const { blog } = Astro.props as CollectionEntry<'blog'>;
+const blog = Astro.props.blog as CollectionEntry<'blog'>;
 const blogData = blog.data;
 const { Content } = await blog.render();
 ---
 
-<Layout title={blogData.title}>
-  <a href='/'>Volver</a>
-  <h1>{blogData.title}</h1>
-  <p>{blogData.description}</p>
-  <p>Publicado el {blogData.date}</p>
-  <p>Autor: {blogData.autor}</p>
-  <img
-    src={blogData.image}
-    alt={blogData.title}
-    transition:name={`slug-${slug}`}
-  />
+<Layout title={`blog-${blogData.title}`}>
+  <div class='max-w-3xl mx-auto px-4 py:4 md:py-8'>
+    <H1 class='text-gray-800 mb-4'>
+      <span transition:name={`title-${blog.slug}`}>{blogData.title} </span>
+    </H1>
+    <p class='text-lg text-gray-700 mb-2'>{blogData.description}</p>
+    <p class='text-sm text-gray-600 mb-1'>Publicado el {blogData.date}</p>
+    <p class='text-sm text-gray-600 mb-4'>Autor: {blogData.autor}</p>
+    <img
+      src={blogData.image}
+      alt={blogData.title}
+      transition:name={`slug-${blog.slug}`}
+      class='w-full h-auto mb-8 rounded-lg shadow-md'
+    />
 
-  <div class='prose'>
-    <Content />
+    <div class='prose max-w-none'>
+      <Content />
+    </div>
   </div>
 </Layout>

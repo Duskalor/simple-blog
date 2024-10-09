@@ -7,6 +7,8 @@ const blogs = alldata.map((blog: CollectionEntry<'blog'>) => ({
   image: blog.data.image,
   title: blog.data.title,
   slug: blog.slug,
+  body: blog.body,
+  date: blog.data.date,
 }));
 ---
 
@@ -17,16 +19,34 @@ const blogs = alldata.map((blog: CollectionEntry<'blog'>) => ({
     blogs.map((blog) => (
       <a
         href={`/blog/${blog.slug}`}
-        class='cursor-pointer w-full  hover:scale-110 transition-all duration-300 ease-in-out'
+        class='overflow-hidden rounded-lg shadow transition hover:shadow-lg'
       >
-        <h2 class='text-2xl font-bold text-center'>{blog.title}</h2>
         <img
-          class='w-full h-full object-cover rounded-lg '
-          src={blog.image}
           transition:name={`slug-${blog.slug}`}
           alt={blog.title}
-          width='400'
+          src={blog.image}
+          class='h-56 w-full object-cover'
         />
+
+        <div class='bg-white p-4 sm:p-6'>
+          <time datetime='2022-10-10' class='block text-xs text-gray-500'>
+            {new Date(blog.date).toLocaleDateString('es-ES', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+          <h3
+            class='mt-0.5 text-lg text-gray-900'
+            transition:name={`title-${blog.slug}`}
+          >
+            {blog.title}
+          </h3>
+
+          <p class='mt-2 line-clamp-3 text-sm/relaxed text-gray-500'>
+            {blog.body}
+          </p>
+        </div>
       </a>
     ))
   }
