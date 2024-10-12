@@ -7,6 +7,10 @@ export const routes = [
     path: '/blog',
     name: 'Blog',
   },
+  {
+    path: '/weater',
+    name: 'Weater',
+  },
 
   {
     path: '/about',

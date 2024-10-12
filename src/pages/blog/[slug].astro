@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layout/Layout.astro';
 import H1 from '../../components/H1.astro';
+import Regresar from '../../components/Regresar.astro';
 
 export const getStaticPaths = async () => {
   const blogs = await getCollection('blog');
@@ -11,8 +12,8 @@ export const getStaticPaths = async () => {
   }));
 };
 
-const { slug } = Astro.params;
-const blog = Astro.props.blog as CollectionEntry<'blog'>;
+// const { slug } = Astro.params;
+const { blog } = Astro.props as CollectionEntry<'blog'>;
 const blogData = blog.data;
 const { Content } = await blog.render();
 ---
@@ -22,18 +23,27 @@ const { Content } = await blog.render();
     <H1 class='text-gray-800 mb-4'>
       <span transition:name={`title-${blog.slug}`}>{blogData.title} </span>
     </H1>
+    <Regresar class='mb-4'>Blog</Regresar>
     <p class='text-lg text-gray-700 mb-2'>{blogData.description}</p>
-    <p class='text-sm text-gray-600 mb-1'>Publicado el {blogData.date}</p>
-    <p class='text-sm text-gray-600 mb-4'>Autor: {blogData.autor}</p>
-    <img
-      src={blogData.image}
-      alt={blogData.title}
-      transition:name={`slug-${blog.slug}`}
-      class='w-full h-auto mb-8 rounded-lg shadow-md'
-    />
+    <p class='text-sm text-gray-600 mb-1'>
+      Publicado el {
+        new Date(blogData.date).toLocaleDateString('es-ES', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })
+      }
+      <p class='text-sm text-gray-600 mb-4'>Autor: {blogData.autor}</p>
+      <img
+        src={blogData.image}
+        alt={blogData.title}
+        transition:name={`slug-${blog.slug}`}
+        class='w-full h-auto mb-8 rounded-lg shadow-md'
+      />
 
-    <div class='prose max-w-none'>
-      <Content />
-    </div>
+      <div class='prose max-w-none'>
+        <Content />
+      </div>
+    </p>
   </div>
 </Layout>

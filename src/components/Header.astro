@@ -35,7 +35,8 @@ const subpath = pathname.match(/[^\/]+/g);
                     <a
                       class:list={{
                         'text-black': isActive,
-                        'text-gray-500 transition hover:text-gray-500/75': true,
+                        'text-gray-500': !isActive,
+                        'p-5 select-none transition hover:text-gray-500/75': true,
                       }}
                       href={route.path}
                     >
@@ -74,7 +75,7 @@ const subpath = pathname.match(/[^\/]+/g);
   </div>
 </header>
 
-<script>
+<!-- <script>
   var toggleOpen = document.getElementById('toggleOpen');
   var toggleClose = document.getElementById('toggleClose');
   var collapseMenu = document.getElementById('collapseMenu');
@@ -89,4 +90,4 @@ const subpath = pathname.match(/[^\/]+/g);
 
   toggleOpen.addEventListener('click', handleClick);
   toggleClose.addEventListener('click', handleClick);
-</script>
+</script> -->

@@ -14,6 +14,9 @@ importers:
       astro:
         specifier: ^4.15.11
         version: 4.15.11(rollup@4.24.0)(typescript@5.6.2)
+      openmeteo:
+        specifier: ^1.1.4
+        version: 1.1.4
       tailwindcss:
         specifier: ^3.4.13
         version: 3.4.13
@@ -425,6 +428,10 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@openmeteo/sdk@1.16.0':
+    resolution: {integrity: sha512-FN3Or5K2OMgBOyGBvdBMYSAd+rQ9+UxpwhU2j1IrEchTf4tkTy+XtEKwbt86UDTkFab4CpK85yJzwyjSLveGFA==}
+    engines: {node: '>=12.0'}
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -904,6 +911,9 @@ packages:
   find-yarn-workspace-root2@1.2.16:
     resolution: {integrity: sha512-hr6hb1w8ePMpPVUK39S4RlwJzi+xPLuVuG8XlwXU3KD5Yn3qgBWVfy3AzNlDhWvE1EORCE65/Qm26rFQt3VLVA==}
 
+  flatbuffers@24.3.25:
+    resolution: {integrity: sha512-3HDgPbgiwWMI9zVB7VYBHaMrbOO7Gm0v+yD2FV/sCKj+9NDeVL7BOBYUuhWAQGKWOzBo8S9WdMvV0eixO233XQ==}
+
   flattie@1.1.1:
     resolution: {integrity: sha512-9UbaD6XdAL97+k/n+N7JwX46K/M6Zc6KcFYskrYL8wbBV/Uyk0CTAMY0VT+qiK5PM7AIc9aTWYtq65U7T+aCNQ==}
     engines: {node: '>=8'}
@@ -1351,6 +1361,10 @@ packages:
 
   oniguruma-to-js@0.4.3:
     resolution: {integrity: sha512-X0jWUcAlxORhOqqBREgPMgnshB7ZGYszBNspP+tS9hPD3l13CdaXcHbgImoHUHlrvGx/7AvFEkTRhAGYh+jzjQ==}
+
+  openmeteo@1.1.4:
+    resolution: {integrity: sha512-TalTDl0M7JJoeRTf+rWiFZ9SLvoxm7KkFLOQqcSjCiYs+bVMhax1qtryJqeZ1RF4W4Xfsgcl9x+VC1z39ULCxA==}
+    engines: {node: '>=12.0'}
 
   ora@8.1.0:
     resolution: {integrity: sha512-GQEkNkH/GHOhPFXcqZs3IDahXEQcQxsSjEkK4KvEEST4t7eNzoMjxTzef+EZ+JluDEV+Raoi3WQ2CflnRdSVnQ==}
@@ -2248,6 +2262,10 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
+  '@openmeteo/sdk@1.16.0':
+    dependencies:
+      flatbuffers: 24.3.25
+
   '@oslojs/encoding@1.1.0': {}
 
   '@pkgjs/parseargs@0.11.0':
@@ -2766,6 +2784,8 @@ snapshots:
     dependencies:
       micromatch: 4.0.8
       pkg-dir: 4.2.0
+
+  flatbuffers@24.3.25: {}
 
   flattie@1.1.1: {}
 
@@ -3396,6 +3416,11 @@ snapshots:
   oniguruma-to-js@0.4.3:
     dependencies:
       regex: 4.3.3
+
+  openmeteo@1.1.4:
+    dependencies:
+      '@openmeteo/sdk': 1.16.0
+      flatbuffers: 24.3.25
 
   ora@8.1.0:
     dependencies:
